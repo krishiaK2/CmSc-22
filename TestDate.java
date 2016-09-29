@@ -1,7 +1,7 @@
 /*
  * A Test Driver for the Date class.
  *
- * krBello
+ * krBello on 09/28/16
  *
  */
 
@@ -21,7 +21,7 @@ public class TestDate {
       System.out.println("Day is: " + d1.getDay());
  
       // Test setDate()
-      d1.setDate(2016, 2, 30);
+      d1.setDate(2016, 2, 29);
       System.out.println(d1);  // toString()
    }
 }
