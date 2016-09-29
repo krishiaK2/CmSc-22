@@ -2,7 +2,7 @@ import java.lang.*;
 
 /**
 *
-* @author krBello
+* @author krBello on 09/28/16
 */
 
 
@@ -12,17 +12,13 @@ public class Account {
 	double balance;
 	
 	public Account(int accNum, double bal) {
-
-		this.accountNumber = accNum;
-		this.balance = bal;
-	
+		accountNumber = accNum;
+		balance = bal;
 	}
 
 	public Account(int accNum) {
-
-		this.accountNumber = accNum;
+		accountNumber = accNum;
 		balance = 0.0;
-	
 	}
 
 	public int getAccountNumber() {
@@ -34,23 +30,23 @@ public class Account {
 	}
 
 	public void setBalance(double bal) {
-		this.balance = bal;
+		balance = bal;
 	}
 
 	public void credit(double amount) {
-		balance = balance + amount;
+		balance += amount;
 	}
 
 	public void debit(double amount){
 		if (balance > amount) {
-			balance = balance - amount;
+			balance -= amount;
 		} else {
-			throw new IllegalArgumentException("EXCEED!");
+			throw new IllegalArgumentException("Amount requested exceeds the current balance!");
 		}
 	}
 
 
 	public String toString() {
-		return String.format("A/C no: %d ,Balance: $ %.2f", accountNumber, balance);
+		return String.format("A/C no: %d, Balance: $%.2f", accountNumber, balance);
 	}
 }
