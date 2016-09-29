@@ -1,7 +1,7 @@
 /*
  * A Test Driver for the Account class.
  *
- * krBello
+ * krBello on 09/28/16
  *
  */
 
@@ -17,15 +17,11 @@ public class TestAccount {
       d1.setBalance(50.00);
       System.out.println(d1);  // run toString() to inspect the modified instance
       System.out.println("A/C is: " + d1.getAccountNumber());
-      System.out.println("Balance is is: " + d1.getBalance());
-
-      d2.setBalance(45.00);
-      System.out.println(d2);  // run toString() to inspect the modified instance
-      System.out.println("A/C is: " + d2.getAccountNumber());
-      System.out.println("Balance is is: " + d2.getBalance());
+      System.out.println("Balance is: " + d1.getBalance());
  
       // Test setDate()
       d1.credit(70.00);
+      System.out.println("Balance is: " + d1.getBalance()); // update to 90.00
       d1.debit(30.00);
       System.out.println(d1);  // toString()
    }
