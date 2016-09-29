@@ -2,7 +2,7 @@ import java.lang.*;
 
 /**
 *
-* @author krBello
+* @author krBello on 09/28/16
 */
 
 public class Date {
@@ -10,6 +10,7 @@ public class Date {
 	private int year;
 	private int month;
 	private int day;
+	public static final String arrayMonth[] = {" ", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
 	public int getYear() {
 		return year;
@@ -17,7 +18,7 @@ public class Date {
 
 	public void setYear(int year) {
 		if (year < 1000 || year > 9999) {
-			throw new IllegalArgumentException("illegal year!");
+			throw new IllegalArgumentException("year must be between 1000 and 9999 only!");
 		}
 		this.year = year;
 	}
@@ -28,7 +29,7 @@ public class Date {
 
 	public void setMonth(int month) {
 		if (month < 1 || month > 12) {
-			throw new IllegalArgumentException("illegal month!");
+			throw new IllegalArgumentException("month must be between 1 and 12 only!");
 		}
 		this.month = month;
 	}
@@ -39,43 +40,33 @@ public class Date {
 
 	public void setDay(int day) {
 
-		if ((this.month == 2) && !((this.year % 400 == 0) || (this.year % 100 != 0 && this.year % 4 == 0))) {
-			if (day < 1 || day > 28) {
-				throw new IllegalArgumentException("FEB has only 28 days!");
-			} else if (this.month == 4 || this.month == 6 || this.month == 9 || this.month == 11) {
-				if (day < 1 || day > 30) {
-					throw new IllegalArgumentException("This month has 30 days only!");
-				}
-			} else if (this.month == 1 || this.month == 3 || this.month == 5 || this.month == 7 || this.month == 8 || this.month == 10 || this.month == 12) {
-				if (day < 1 || day > 31) {
-					throw new IllegalArgumentException("This month has 31 days only!");
-				}
+		if ((month == 2) && ((year % 400 == 0) || (year % 100 != 0 && year % 4 == 0))) {
+			if (day < 1 || day > 29) {
+				throw new IllegalArgumentException("February leap year has 29 days only!");
 			}
 		} else {
-			if ((this.year % 400 == 0) || (this.year % 100 != 0 && this.year % 4 == 0)) {
-				if (this.month == 2) {
-					if (day < 1 || day > 29) {
-						throw new IllegalArgumentException("FEB leap year has 29 days only!");
+				if (month == 2) {
+					if (day < 1 || day > 28) {
+						throw new IllegalArgumentException("February has 28 days only!");
 					}
-				} else if (this.month == 4 || this.month == 6 || this.month == 9 || this.month == 11) {
+				} else if (month == 4 || month == 6 || month == 9 || month == 11) {
 					if (day < 1 || day > 30) {
-						throw new IllegalArgumentException("This month has 30 days only!");
+						throw new IllegalArgumentException(arrayMonth[month] + " has 30 days only!");
 					}
-				} else if (this.month == 1 || this.month == 3 || this.month == 5 || this.month == 7 || this.month == 8 || this.month == 10 || this.month == 12) {
+				} else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
 					if (day < 1 || day > 31) {
-						throw new IllegalArgumentException("This month has 31 days only!");
+						throw new IllegalArgumentException(arrayMonth[month] + " has 31 days only!");
 					}
 				}
 			}
-		}
 		this.day = day;
 
 	}
 
 	public Date() {
-		this.year = 1000;
-		this.month = 1;
-		this.day = 1;
+		year = 1000;
+		month = 1;
+		day = 1;
 	}
 
 	public Date(int year, int month, int day) {		
