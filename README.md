@@ -1,1 +1,1 @@
-# Fun-Times-
+# FunTimes!
